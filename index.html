@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html ng-app="MainApp">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Dlogr</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<div class="container">
+    <form class="form" ng-controller="AuthController as $ctrl">
+        <input class="form-control" ng-model="$ctrl.email " placeholder="email" type="email">
+        <input class="form-control" ng-model="$ctrl.password " placeholder="password" type="password">
+        <input class="form-control" ng-click="$ctrl.login()" type="submit" value="LOGIN">
+        {{ $ctrl.error }}
+    </form>
+
+</div>
+
+    <!-- Libs -->
+    <script src="js/jquery-2.1.4.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/angular.min.js"></script>
+    <script src="js/angular-ui-router.min.js"></script>
+
+    <script src="src/main/main.module.js"></script>
+    <script src="src/main/main.controllers.auth_controller.js"></script>
+    <script src="src/main/main.services.current_user_service.js"></script>
+    <!--
+
+    <script src="src/common/common.module.js"></script>
+    <script src="src/common/loading/loading.component.js"></script>
+    <script src="src/common/loading/loading.interceptor.js"></script>
+    <script src="src/common/menu.service.js"></script>
+
+    <script src="src/public/public.module.js"></script>
+    <script src="src/public/public.routes.js"></script>
+    <script src="src/public/menu/menu.controller.js"></script>
+    <script src="src/public/menu-category/menu-category.component.js"></script>
+    <script src="src/public/menu-items/menu-items.controller.js"></script>
+    <script src="src/public/menu-item/menu-item.component.js"></script>
+
+    <script src="src/admin/admin.module.js"></script>
+    <script src="src/admin/admin.routes.js"></script>
+    <script src="src/admin/services/login.service.js"></script>
+    <script src="src/admin/services/current-user.service.js"></script>
+    <script src="src/admin/services/authredirector.service.js"></script>
+    <script src="src/admin/auth.interceptor.js"></script>
+    <script src="src/admin/login/login.controller.js"></script>
+    <script src="src/admin/category/category-list.component.js"></script>
+    <script src="src/admin/category/category-items.controller.js"></script>
+    <script src="src/admin/menu-item/menu-item-edit.controller.js"></script>
+    <script src="src/admin/menu-item/menu-item-admin.component.js"></script>
+    -->
+
+</body>
+</html>
