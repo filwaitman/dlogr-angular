@@ -5,10 +5,10 @@
         .controller('DashboardController', DashboardController)
     ;
 
-    DashboardController.$inject = ['user', 'items_data'];
-    function DashboardController(user, items_data) {
+    DashboardController.$inject = ['user', 'itemsData'];
+    function DashboardController(user, itemsData) {
         var $ctrl = this;
         $ctrl.user = user;
-        $ctrl.items_data = items_data;
+        $ctrl.itemsData = itemsData;
     }
 })();

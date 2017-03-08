@@ -15,6 +15,7 @@
             templateUrl: 'src/main/templates/login.html',
             controller: 'AuthController as $ctrl',
         })
+
         .state('dashboard', {
             url: '/dashboard',
             templateUrl: 'src/main/templates/dashboard.html',
@@ -22,16 +23,17 @@
             resolve: {
                 user: [
                     'CurrentUserService', function(CurrentUserService) {
-                        return CurrentUserService.get_user();
+                        return CurrentUserService.getUser();
                     }
                 ],
-                items_data: [
+                itemsData: [
                     'EventService', function(EventService) {
                         return EventService.getItems();
                     }
                 ],
             }
         })
+
         .state('dashboardItem', {
             url: '/dashboard/{objectType}/{objectId}',
             templateUrl: 'src/main/templates/dashboard_item.html',
@@ -39,10 +41,10 @@
             resolve: {
                 user: [
                     'CurrentUserService', function(CurrentUserService) {
-                        return CurrentUserService.get_user();
+                        return CurrentUserService.getUser();
                     }
                 ],
-                items_data: [
+                itemsData: [
                     'EventService', '$stateParams', function(EventService, $stateParams) {
                         return EventService.getItems($stateParams.objectType, $stateParams.objectId);
                     }

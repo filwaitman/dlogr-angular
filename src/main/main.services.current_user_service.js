@@ -8,25 +8,25 @@
     CurrentUserService.$inject = [];
     function CurrentUserService(){
         var service = this;
-        service.user_data = null;
-        service.user_token = '';
+        service.userData = null;
+        service.userToken = '';
 
-        service.set_user = function(data){
-            service.user_data = data;
-            service.user_token = data.auth_token
+        service.setUser = function(data){
+            service.userData = data;
+            service.userToken = data.auth_token;
         }
 
-        service.get_user = function(){
-            return service.user_data;
+        service.getUser = function(){
+            return service.userData;
         }
 
-        service.get_user_token = function(){
-            return service.user_token;
+        service.getUserToken = function(){
+            return service.userToken;
         }
 
-        service.clear_user = function(){
-            service.user_data = null;
-            service.user_token = '';
+        service.clearUser = function(){
+            service.userData = null;
+            service.userToken = '';
         }
     }
 })();

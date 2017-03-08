@@ -10,9 +10,9 @@
         var service = this;
 
         service.getItems = function(objectType, objectId){
-            var token = 'Token ' + CurrentUserService.get_user_token();
-            var config = {headers:  {'Authorization': token}};
-            var url = API_BASE_URL + '/events';
+            var config = {headers:  {
+                'Authorization': 'Token ' + CurrentUserService.getUserToken()
+            }};
 
             if (objectType !== undefined && objectId !== undefined){
                 config.params = {
@@ -21,11 +21,12 @@
                 };
             }
 
-            return $http.get(url, config).then(
+            return $http.get(API_BASE_URL + '/events', config).then(
                 function (response) {
-                    return response.data
+                    return response.data;
                 },
                 function (response) {
+                    CurrentUserService.clearUser();
                     $state.go('login');
                 }
             )

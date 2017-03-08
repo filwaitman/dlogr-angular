@@ -4,10 +4,10 @@ Dashboard ITEM: {{ $ctrl.user.email }}
 <br>
 <br>
 
-<h1>{{ $ctrl.items_data.count }} Items</h1>
+<h1>{{ $ctrl.itemsData.count }} Items</h1>
 
 <ul>
-<li ng-repeat="item in $ctrl.items_data.results">
+<li ng-repeat="item in $ctrl.itemsData.results">
     <p>{{ item.human_identifier }}</p>
     <p>{{ item.message }}</p>
 </li>
