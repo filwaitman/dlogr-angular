@@ -24,7 +24,29 @@
                     'CurrentUserService', function(CurrentUserService) {
                         return CurrentUserService.get_user();
                     }
-                ]
+                ],
+                items_data: [
+                    'EventService', function(EventService) {
+                        return EventService.getItems();
+                    }
+                ],
+            }
+        })
+        .state('dashboardItem', {
+            url: '/dashboard/{objectType}/{objectId}',
+            templateUrl: 'src/main/templates/dashboard_item.html',
+            controller: 'DashboardController as $ctrl',
+            resolve: {
+                user: [
+                    'CurrentUserService', function(CurrentUserService) {
+                        return CurrentUserService.get_user();
+                    }
+                ],
+                items_data: [
+                    'EventService', '$stateParams', function(EventService, $stateParams) {
+                        return EventService.getItems($stateParams.objectType, $stateParams.objectId);
+                    }
+                ],
             }
         })
     }

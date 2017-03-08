@@ -1,4 +1,4 @@
-Dashboard: {{ $ctrl.user.email }}
+Dashboard ITEM: {{ $ctrl.user.email }}
 
 <br>
 <br>
@@ -8,7 +8,6 @@ Dashboard: {{ $ctrl.user.email }}
 
 <ul>
 <li ng-repeat="item in $ctrl.items_data.results">
-    <a ui-sref="dashboardItem({objectId: item.object_id, objectType: item.object_type})">(see items)</a>
     <p>{{ item.human_identifier }}</p>
     <p>{{ item.message }}</p>
 </li>

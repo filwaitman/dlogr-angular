@@ -20,6 +20,10 @@
             return service.user_data;
         }
 
+        service.get_user_token = function(){
+            return service.user_token;
+        }
+
         service.clear_user = function(){
             service.user_data = null;
             service.user_token = '';
