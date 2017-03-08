@@ -1,4 +1,4 @@
-(function(){
+(function(window){
     'use strict'
 
     angular.module('MainApp')
@@ -17,7 +17,7 @@
             return $http.post(API_BASE_URL + '/auth/login', data).then(
                 function (response) {
                     CurrentUserService.set_user(response.data);
-                    $ctrl.error = 'Done!  =]';
+                    window.location.replace("/#/dashboard");
                 },
                 function (response) {
                     $ctrl.error = 'Unable to login with credentials provided.'
@@ -25,4 +25,4 @@
             );
         }
     }
-})();
+})(window);

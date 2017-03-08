@@ -1,41 +1,31 @@
 (function() {
-'use strict';
+    'use strict';
 
-angular.module('main')
-.config(routeConfig);
+    angular.module('MainApp')
+        .config(routeConfig)
+    ;
 
-routeConfig.$inject = ['$stateProvider'];
-function routeConfig ($stateProvider) {
-  $stateProvider
-    .state('public', {
-      absract: true,
-      templateUrl: 'src/public/public.html'
-    })
-    .state('public.home', {
-      url: '/',
-      templateUrl: 'src/public/home/home.html'
-    })
-    .state('public.menu', {
-      url: '/menu',
-      templateUrl: 'src/public/menu/menu.html',
-      controller: 'MenuController',
-      controllerAs: 'menuCtrl',
-      resolve: {
-        menuCategories: ['MenuService', function (MenuService) {
-          return MenuService.getCategories();
-        }]
-      }
-    })
-    .state('public.menuitems', {
-      url: '/menu/{category}',
-      templateUrl: 'src/public/menu-items/menu-items.html',
-      controller: 'MenuItemsController',
-      controllerAs: 'menuItemsCtrl',
-      resolve: {
-        menuItems: ['$stateParams','MenuService', function ($stateParams, MenuService) {
-          return MenuService.getMenuItems($stateParams.category);
-        }]
-      }
-    });
-}
+    routeConfig.$inject = ['$stateProvider', '$urlRouterProvider'];
+    function routeConfig ($stateProvider, $urlRouterProvider) {
+        $urlRouterProvider.otherwise('/login');
+
+        $stateProvider
+        .state('login', {
+            url: '/login',
+            templateUrl: 'src/main/templates/login.html',
+            controller: 'AuthController as $ctrl',
+        })
+        .state('dashboard', {
+            url: '/dashboard',
+            templateUrl: 'src/main/templates/dashboard.html',
+            controller: 'DashboardController as $ctrl',
+            resolve: {
+                user: [
+                    'CurrentUserService', function(CurrentUserService) {
+                        return CurrentUserService.get_user();
+                    }
+                ]
+            }
+        })
+    }
 })();

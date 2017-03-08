@@ -1,0 +1,8 @@
+<div class="container">
+    <form class="form">
+        <input class="form-control" ng-model="$ctrl.email " placeholder="email" type="email">
+        <input class="form-control" ng-model="$ctrl.password " placeholder="password" type="password">
+        <input class="form-control" ng-click="$ctrl.login()" type="submit" value="LOGIN">
+        {{ $ctrl.error }}
+    </form>
+</div>
