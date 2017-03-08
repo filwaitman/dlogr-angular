@@ -1,12 +1,12 @@
-(function(window){
+(function(){
     'use strict'
 
     angular.module('MainApp')
         .service('EventService', EventService)
     ;
 
-    EventService.$inject = ['$http', 'CurrentUserService', 'API_BASE_URL'];
-    function EventService($http, CurrentUserService, API_BASE_URL){
+    EventService.$inject = ['$http', '$state', 'CurrentUserService', 'API_BASE_URL'];
+    function EventService($http, $state, CurrentUserService, API_BASE_URL){
         var service = this;
 
         service.getItems = function(objectType, objectId){
@@ -26,9 +26,9 @@
                     return response.data
                 },
                 function (response) {
-                    window.location.replace("/#/login");
+                    $state.go('login');
                 }
             )
         }
     }
-})(window);
+})();

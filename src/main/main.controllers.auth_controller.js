@@ -1,12 +1,12 @@
-(function(window){
+(function(){
     'use strict'
 
     angular.module('MainApp')
         .controller('AuthController', AuthController)
     ;
 
-    AuthController.$inject = ['$http', 'CurrentUserService', 'API_BASE_URL'];
-    function AuthController($http, CurrentUserService, API_BASE_URL){
+    AuthController.$inject = ['$http', '$state', 'CurrentUserService', 'API_BASE_URL'];
+    function AuthController($http, $state, CurrentUserService, API_BASE_URL){
         var $ctrl = this;
         $ctrl.email = '';
         $ctrl.password = '';
@@ -17,7 +17,7 @@
             return $http.post(API_BASE_URL + '/auth/login', data).then(
                 function (response) {
                     CurrentUserService.set_user(response.data);
-                    window.location.replace("/#/dashboard");
+                    $state.go("dashboard");
                 },
                 function (response) {
                     $ctrl.error = 'Unable to login with credentials provided.'
@@ -25,4 +25,4 @@
             );
         }
     }
-})(window);
+})();
