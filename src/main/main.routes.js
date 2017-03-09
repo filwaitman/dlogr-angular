@@ -45,8 +45,8 @@
                     }
                 ],
                 itemsData: [
-                    'EventService', function(EventService) {
-                        return EventService.getItems();
+                    function(EventService) {
+                        return null;
                     }
                 ],
             }
