@@ -15,10 +15,41 @@
             templateUrl: 'src/main/templates/index.html',
         })
 
+        $stateProvider
+        .state('about', {
+            url: '/about',
+            templateUrl: 'src/main/templates/about.html',
+        })
+
+        $stateProvider
+        .state('support-us', {
+            url: '/support-us',
+            templateUrl: 'src/main/templates/support-us.html',
+        })
+
         .state('login', {
             url: '/login',
             templateUrl: 'src/main/templates/login.html',
             controller: 'AuthController as $ctrl',
+        })
+
+        $stateProvider
+        .state('welcome', {
+            url: '/welcome',
+            templateUrl: 'src/main/templates/welcome.html',
+            controller: 'DashboardController as $ctrl',
+            resolve: {
+                user: [
+                    'CurrentUserService', function(CurrentUserService) {
+                        return CurrentUserService.getUser();
+                    }
+                ],
+                itemsData: [
+                    'EventService', function(EventService) {
+                        return EventService.getItems();
+                    }
+                ],
+            }
         })
 
         .state('dashboard', {
