@@ -56,43 +56,56 @@
 
         <!-- Article main content -->
         <article class="col-xs-12 maincontent">
-    <header class="page-header">
-        <h1 class="page-title">Sign in</h1>
-    </header>
+	<header class="page-header">
+		<h1 class="page-title">Registration</h1>
+	</header>
 
-    <div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
-        <div class="panel panel-default">
-            <div class="panel-body">
-                <h3 class="thin text-center">Sign in to your account</h3>
-                <p class="text-center text-muted">
-                    If you still haven't an account with us, <a ui-sref="signup">sign up</a>! Don't be shy, it's free and you won't regret. =P
-                </p>
-                <hr>
+	<div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+		<div class="panel panel-default">
+			<div class="panel-body">
+				<h3 class="thin text-center">Register a new account</h3>
+				<p class="text-center text-muted">If you already have an account, <a ui-sref="login">sign in</a>!</p>
+				<hr>
 
-                <form>
+				<form>
+					<div class="top-margin">
+                        <label>Name <span class="text-danger">*</span></label>
+						<input type="text" ng-model="$ctrl.name" class="form-control" name="name" id="id_name" required autofocus>
+					</div>
+
+					<div class="top-margin">
+						<label>Email Address <span class="text-danger">*</span></label>
+						<input type="email" ng-model="$ctrl.email" class="form-control" name="email" id="id_email" required>
+					</div>
+
                     <div class="top-margin">
-                        <label>Email <span class="text-danger">*</span></label>
-                        <input type="email" ng-model="$ctrl.email" class="form-control" name="email" id="id_email" required autofocus>
+                        <label>Timezone <span class="text-danger">*</span></label>
+                        <input type="text" ng-model="$ctrl.timezone" class="form-control" name="timezone" id="id_timezone" required>
                     </div>
 
-                    <div class="top-margin">
-                        <label>Password <span class="text-danger">*</span></label>
-                        <input type="password" ng-model="$ctrl.password" class="form-control" name="password" id="id_password" required>
-                    </div>
+					<div class="row top-margin">
+						<div class="col-sm-6">
+							<label>Password <span class="text-danger">*</span></label>
+							<input type="password" ng-model="$ctrl.password" class="form-control" name="password" id="id_password" required>
+						</div>
+						<div class="col-sm-6">
+							<label>Confirm Password <span class="text-danger">*</span></label>
+                            <input type="password" class="form-control" name="password2" id="id_password2" required>
+						</div>
+					</div>
 
-                    <hr>
-                    <div class="row">
-                        <div class="col-lg-8">
-                            <b><a href="reset-password">Forgot password?</a></b>
-                        </div>
-                        <div class="col-lg-4 text-right">
-                            <button ng-click="$ctrl.login()" class="btn btn-action" type="submit">Sign in</button>
-                        </div>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
+					<hr>
+					<div class="row">
+						<div class="col-lg-8">
+						</div>
+						<div class="col-lg-4 text-right">
+							<button class="btn btn-action" ng-click="$ctrl.signUp()" type="button">Register</button>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
         </article>
     </div>
 </div>

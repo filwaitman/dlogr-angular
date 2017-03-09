@@ -30,7 +30,13 @@
         .state('login', {
             url: '/login',
             templateUrl: 'src/main/templates/login.html',
-            controller: 'AuthController as $ctrl',
+            controller: 'LoginController as $ctrl',
+        })
+
+        .state('signup', {
+            url: '/signup',
+            templateUrl: 'src/main/templates/signup.html',
+            controller: 'SignupController as $ctrl',
         })
 
         $stateProvider

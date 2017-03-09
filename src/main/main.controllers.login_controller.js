@@ -2,11 +2,11 @@
     'use strict'
 
     angular.module('MainApp')
-        .controller('AuthController', AuthController)
+        .controller('LoginController', LoginController)
     ;
 
-    AuthController.$inject = ['$http', '$state', 'CurrentUserService', 'API_BASE_URL'];
-    function AuthController($http, $state, CurrentUserService, API_BASE_URL){
+    LoginController.$inject = ['$http', '$state', 'CurrentUserService', 'API_BASE_URL'];
+    function LoginController($http, $state, CurrentUserService, API_BASE_URL){
         var $ctrl = this;
         $ctrl.email = '';
         $ctrl.password = '';

@@ -1,0 +1,54 @@
+{% extends 'base.jinja' %}
+
+{% block content %}
+	<header class="page-header">
+		<h1 class="page-title">Registration</h1>
+	</header>
+
+	<div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+		<div class="panel panel-default">
+			<div class="panel-body">
+				<h3 class="thin text-center">Register a new account</h3>
+				<p class="text-center text-muted">If you already have an account, <a ui-sref="login">sign in</a>!</p>
+				<hr>
+
+				<form>
+					<div class="top-margin">
+                        <label>Name <span class="text-danger">*</span></label>
+						<input type="text" ng-model="$ctrl.name" class="form-control" name="name" id="id_name" required autofocus>
+					</div>
+
+					<div class="top-margin">
+						<label>Email Address <span class="text-danger">*</span></label>
+						<input type="email" ng-model="$ctrl.email" class="form-control" name="email" id="id_email" required>
+					</div>
+
+                    <div class="top-margin">
+                        <label>Timezone <span class="text-danger">*</span></label>
+                        <input type="text" ng-model="$ctrl.timezone" class="form-control" name="timezone" id="id_timezone" required>
+                    </div>
+
+					<div class="row top-margin">
+						<div class="col-sm-6">
+							<label>Password <span class="text-danger">*</span></label>
+							<input type="password" ng-model="$ctrl.password" class="form-control" name="password" id="id_password" required>
+						</div>
+						<div class="col-sm-6">
+							<label>Confirm Password <span class="text-danger">*</span></label>
+                            <input type="password" class="form-control" name="password2" id="id_password2" required>
+						</div>
+					</div>
+
+					<hr>
+					<div class="row">
+						<div class="col-lg-8">
+						</div>
+						<div class="col-lg-4 text-right">
+							<button class="btn btn-action" ng-click="$ctrl.signUp()" type="button">Register</button>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+{% endblock %}

@@ -30,7 +30,7 @@
             <p class="text-muted">at {{ event.timestamp }} ({{ event.timestamp }})</p>
             <hr/>
         </span>
-        <span ng-hide="$ctrl.itemsData.results">
+        <span ng-if="$ctrl.itemsData.count === 0">
             <h3>Nothing here - yet.</h3>
             <p><a ui-sref="welcome">Click here</a> to get a walkthrough on how to connect with us.</p>
         </span>
