@@ -1,0 +1,55 @@
+{% extends 'base.jinja' %}
+
+{% block content %}
+	<header class="page-header">
+		<h1 class="page-title">Settings</h1>
+	</header>
+
+	<div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+		<div class="panel panel-default">
+			<div class="panel-body">
+				<h3 class="thin text-center">Settings</h3>
+				<hr>
+
+				<form>
+                    <div class="top-margin">
+                        <label>API Auth Token <span class="text-danger">*</span></label>
+                        <div class="input-group">
+                            <input type="password" ng-model="$ctrl.user.auth_token" class="form-control showhidepassword_field" name="api_auth_token" id="id_api_auth_token"  readonly>
+                            <span class="input-group-btn">
+                                <button id="showhidepassword" class="btn btn-default custom-btn-input-group">
+                                    <span class="glyphicon glyphicon-eye-open showhidepassword_glyphicon" aria-hidden="true"></span>
+                                </button>
+                            </span>
+                        </div>
+                    </div>
+
+					<div class="top-margin">
+                        <label>Name <span class="text-danger">*</span></label>
+						<input type="text" ng-model="$ctrl.user.name" class="form-control" name="name" id="id_name" required autofocus>
+					</div>
+
+					<div class="top-margin">
+						<label>Email Address <span class="text-danger">*</span></label>
+						<input type="email" ng-model="$ctrl.user.email" class="form-control" name="email" id="id_email" required>
+					</div>
+
+                    <div class="top-margin">
+                        <label>Timezone <span class="text-danger">*</span></label>
+                        <input type="text" ng-model="$ctrl.user.timezone" class="form-control" name="timezone" id="id_timezone" required>
+                    </div>
+
+					<hr>
+					<div class="row">
+						<div class="col-lg-8">
+                            {# <b><a href="{% url 'change-password' %}">Change password</a></b> #}
+						</div>
+						<div class="col-lg-4 text-right">
+							<button class="btn btn-action" ng-click="$ctrl.updateUser()" type="button">Update</button>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+{% endblock %}

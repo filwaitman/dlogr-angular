@@ -11,9 +11,12 @@
         service.userData = null;
         service.userToken = '';
 
-        service.setUser = function(data){
+        service.setUser = function(data, resetToken){
             service.userData = data;
-            service.userToken = data.auth_token;
+
+            if (resetToken === undefined || resetToken === true){
+                service.userToken = data.auth_token;
+            }
         }
 
         service.getUser = function(){

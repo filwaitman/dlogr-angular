@@ -33,6 +33,11 @@
             controller: 'LoginController as $ctrl',
         })
 
+        .state('logout', {
+            url: '/logout',
+            controller: 'LogoutController as $ctrl',
+        })
+
         .state('signup', {
             url: '/signup',
             templateUrl: 'src/main/templates/signup.html',
@@ -121,5 +126,19 @@
 
             }
         })
+
+        .state('settings', {
+            url: '/settings',
+            templateUrl: 'src/main/templates/settings.html',
+            controller: 'SettingsController as $ctrl',
+            resolve: {
+                user: [
+                    'CurrentUserService', function(CurrentUserService) {
+                        return CurrentUserService.getUser();
+                    }
+                ],
+            }
+        })
+
     }
 })();
