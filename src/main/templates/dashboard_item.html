@@ -31,7 +31,7 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav pull-right" ng-show="$ctrl.user">
-                    <li><a href="dashboard">Dashboard</a></li>
+                    <li><a ui-sref="dashboard">Dashboard</a></li>
                     <li><a href="settings">Settings</a></li>
                     <li><a href="support"us' %}">Support us</a></li>
                     <li><a href="heroes">Heroes</a></li>
@@ -97,7 +97,6 @@
     {{ block.super }}
 
     <span ng-if="$ctrl.itemsData.results">
-        <script src="https://cdn.knightlab.com/libs/timeline3/latest/js/timeline.js"></script>
         <script type="text/javascript">
           var additionalOptions = {
             start_at_end: true,
