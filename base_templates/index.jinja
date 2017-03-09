@@ -1,0 +1,44 @@
+{% extends 'base.jinja' %}
+
+{% block divwrapper_open %}{% endblock %}
+{% block divwrapper_close %}{% endblock %}
+
+{% block outer_content %}
+    <!-- Header -->
+    <header id="head">
+        <div class="container">
+            <div class="row">
+                <h1 class="lead sub-hero">Dlogr: High level, object-oriented logging.</h1>
+                <p class="tagline sub-hero">(Done right.)</p>
+                <p>
+                    <a class="no-shadow btn btn-info btn-lg" role="button" href="#">SEE ON GITHUB</a>
+                    <a class="no-shadow btn btn-primary btn-lg" role="button" href="signup">SIGN UP</a>
+                </p>
+            </div>
+        </div>
+    </header>
+    <!-- /Header -->
+
+    <!-- Intro -->
+    <div class="container text-center">
+        <br> <br>
+        <div class="row">
+            <div class="col-lg-6 col-md-6 hidden-sm hidden-xs">
+                <img src="static/images/whats_this_about.jpg" style="margin-top: 30px;">
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 text-left">
+                <h2 class="thin">What's this about?</h2>
+                <p class="text-muted">
+                    Dlogr is a new way to track occurences of any kind of your database objects. <br/>
+                    It's a logging app, precisely built to deal with rich objects.<br/><br/>
+
+                    Have you ever tried to track down everything of you user/invoice/whatever lifetime? That's why we're here.  =]<br><br>
+
+                    With a super-easy setup you'll be ready to integrate with Dlogr in a matter of minutes. Give it a try, it's simple and it's free! Why not?
+                    <p class="text-right"><a class="no-shadow btn btn-primary btn-large" href="signup">Check it out!</a></p>
+                </p>
+            </div>
+        </div>
+    </div>
+    <!-- /Intro-->
+{% endblock %}

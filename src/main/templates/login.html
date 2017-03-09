@@ -1,8 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Dlogr</title>
+    <link rel="shortcut icon" href="static/images/gt_favicon.png">
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" media="screen">
+    <link rel="stylesheet" href="static/css/bootstrap.min.css">
+    <link rel="stylesheet" href="static/css/font-awesome.min.css">
+    <link rel="stylesheet" href="static/css/bootstrap-theme.css">
+    <link rel="stylesheet" href="static/css/main.css">
+    <link rel="stylesheet" href="https://cdn.knightlab.com/libs/timeline3/latest/css/timeline.css">
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="static/js/html5shiv.js"></script>
+    <script src="static/js/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+
+<div class="wrapper">
+
+    <div class="navbar navbar-inverse navbar-thin" style="background-color: black">
+        <div class="container">
+            <div class="navbar-header">
+                <!-- Button for smallest screens -->
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"><span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+                <a class="navbar-brand" href="index"><img src="static/images/logo.png" alt="Dlogr"></a>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav pull-right" ng-show="$ctrl.user">
+                    <li><a href="dashboard">Dashboard</a></li>
+                    <li><a href="settings">Settings</a></li>
+                    <li><a href="support"us' %}">Support us</a></li>
+                    <li><a href="heroes">Heroes</a></li>
+                    <li><a href="signout">Sign out</a></li>
+                </ul>
+                <ul class="nav navbar-nav pull-right" ng-hide="$ctrl.user">
+                    <li><a href="index">Home</a></li>
+                    <li><a href="about">About</a></li>
+                    <li><a href="support-us">Support us</a></li>
+                    <li><a href="heroes">Heroes</a></li>
+                    <li><a href="signin">Sign in</a></li>
+                    <li><a href="signup" class="btn">SIGN UP</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+
+<div ng-if="$ctrl.error" class="alert alert-danger">{{ $ctrl.error }}</div>
+
+<div class="breadcrumb"></div>
 <div class="container">
-    <form class="form">
-        <input class="form-control" ng-model="$ctrl.email " placeholder="email" type="email">
-        <input class="form-control" ng-model="$ctrl.password " placeholder="password" type="password">
-        <input class="form-control" ng-click="$ctrl.login()" type="submit" value="LOGIN">
-        {{ $ctrl.error }}
-    </form>
+    <div class="row">
+
+        <!-- Article main content -->
+        <article class="col-xs-12 maincontent">
+    <header class="page-header">
+        <h1 class="page-title">Sign in</h1>
+    </header>
+
+    <div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <h3 class="thin text-center">Sign in to your account</h3>
+                <p class="text-center text-muted">
+                    If you still haven't an account with us, <a href="signup">sign up</a>! Don't be shy, it's free and you won't regret. =P
+                </p>
+                <hr>
+
+                <form>
+                    <div class="top-margin">
+                        <label>Email <span class="text-danger">*</span></label>
+                        <input type="email" ng-model="$ctrl.email" class="form-control" name="email" id="id_email" required autofocus>
+                    </div>
+
+                    <div class="top-margin">
+                        <label>Password <span class="text-danger">*</span></label>
+                        <input type="password" ng-model="$ctrl.password" class="form-control" name="password" id="id_password" required>
+                    </div>
+
+                    <hr>
+                    <div class="row">
+                        <div class="col-lg-8">
+                            <b><a href="reset-password">Forgot password?</a></b>
+                        </div>
+                        <div class="col-lg-4 text-right">
+                            <button ng-click="$ctrl.login()" class="btn btn-action" type="submit">Sign in</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+        </article>
+    </div>
 </div>
+
+<div class="push"></div>
+
+</div>
+
+    <footer id="footer">
+        <div class="footer2">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12 widget">
+                        <div class="widget-body">
+                            <p class="text-center">
+                                Copyright &copy; 2016, Dlogr.
+                                Developed by <a href="http://filwaitman.github.io/"">Filipe Waitman</a>.
+                                Designed by <a href="http://cavalcanticarol.com.br/" rel="designer">Carol Cavalcanti</a>.
+                                Based on <a href="http://gettemplate.com/" rel="designer">gettemplate</a> template.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </footer>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+    <script src="static/js/headroom.min.js"></script>
+    <script src="static/js/jQuery.headroom.min.js"></script>
+    <script src="static/js/template.js"></script>
+</body>
+</html>

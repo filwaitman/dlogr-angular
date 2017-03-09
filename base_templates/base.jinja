@@ -4,6 +4,7 @@
     <title>Dlogr</title>
     <link rel="shortcut icon" href="static/images/gt_favicon.png">
 
+{% block css %}
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" media="screen">
     <link rel="stylesheet" href="static/css/bootstrap.min.css">
     <link rel="stylesheet" href="static/css/font-awesome.min.css">
@@ -16,12 +17,16 @@
     <script src="static/js/html5shiv.js"></script>
     <script src="static/js/respond.min.js"></script>
     <![endif]-->
+{% endblock %}
 </head>
 
 <body>
 
+{% block divwrapper_open %}
 <div class="wrapper">
+{% endblock %}
 
+{% block navbar %}
     <div class="navbar navbar-inverse navbar-thin" style="background-color: black">
         <div class="container">
             <div class="navbar-header">
@@ -48,47 +53,32 @@
             </div>
         </div>
     </div>
+{% endblock %}
 
 
-    <div ng-if="$ctrl.error" class="alert alert-danger">{{ $ctrl.error }}</div>
+{% block outer_content %}
+<div ng-if="$ctrl.error" class="alert alert-danger">{{ ctrl.error }}</div>
 
-    <div class="breadcrumb"></div>
+<div class="breadcrumb"></div>
+<div class="container">
+    <div class="row">
 
-    <div class="container">
-        <div class="row">
-            <form>
-              <div class="col-lg-offset-6 col-lg-6">
-                <div class="input-group">
-                  <input type="text" class="form-control" name="search" id="id_search" autofocus placeholder="Search events!">
-                  <span class="input-group-btn">
-                    <input type="submit" class="btn btn-default custom-btn-input-group" value="Search" />
-                  </span>
-                </div><!-- /input-group -->
-              </div><!-- /.col-lg-6 -->
-            </form>
-        </div>
-        <h1>Events received</h1>
-
-        <span ng-repeat="event in $ctrl.itemsData.results">
-            <h3>{{ event.human_identifier }}: {{ event.message }}</h3>
-            <p class="text-muted">
-                <a ui-sref="dashboardItem({objectId: event.object_id, objectType: event.object_type})">
-                    {{ event.object_type }} / {{ event.object_id }}
-                </a>
-            </p>
-            <p class="text-muted">at {{ event.timestamp }} ({{ event.timestamp }})</p>
-            <hr/>
-        </span>
-        <span ng-hide="$ctrl.itemsData.results">
-            <h3>Nothing here - yet.</h3>
-            <p><a href="welcome">Click here</a> to get a walkthrough on how to connect with us.</p>
-        </span>
+        <!-- Article main content -->
+        <article class="col-xs-12 maincontent">
+            {% block content %}
+            {% endblock %}
+        </article>
     </div>
+</div>
+{% endblock %}
 
 <div class="push"></div>
 
+{% block divwrapper_close %}
 </div>
+{% endblock %}
 
+{% block footer %}
     <footer id="footer">
         <div class="footer2">
             <div class="container">
@@ -108,11 +98,14 @@
         </div>
 
     </footer>
+{% endblock %}
 
+{% block js %}
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
     <script src="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
     <script src="static/js/headroom.min.js"></script>
     <script src="static/js/jQuery.headroom.min.js"></script>
     <script src="static/js/template.js"></script>
+{% endblock %}
 </body>
 </html>

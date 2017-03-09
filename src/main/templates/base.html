@@ -50,40 +50,17 @@
     </div>
 
 
-    <div ng-if="$ctrl.error" class="alert alert-danger">{{ $ctrl.error }}</div>
+<div ng-if="$ctrl.error" class="alert alert-danger">{{ $ctrl.error }}</div>
 
-    <div class="breadcrumb"></div>
+<div class="breadcrumb"></div>
+<div class="container">
+    <div class="row">
 
-    <div class="container">
-        <div class="row">
-            <form>
-              <div class="col-lg-offset-6 col-lg-6">
-                <div class="input-group">
-                  <input type="text" class="form-control" name="search" id="id_search" autofocus placeholder="Search events!">
-                  <span class="input-group-btn">
-                    <input type="submit" class="btn btn-default custom-btn-input-group" value="Search" />
-                  </span>
-                </div><!-- /input-group -->
-              </div><!-- /.col-lg-6 -->
-            </form>
-        </div>
-        <h1>Events received</h1>
-
-        <span ng-repeat="event in $ctrl.itemsData.results">
-            <h3>{{ event.human_identifier }}: {{ event.message }}</h3>
-            <p class="text-muted">
-                <a ui-sref="dashboardItem({objectId: event.object_id, objectType: event.object_type})">
-                    {{ event.object_type }} / {{ event.object_id }}
-                </a>
-            </p>
-            <p class="text-muted">at {{ event.timestamp }} ({{ event.timestamp }})</p>
-            <hr/>
-        </span>
-        <span ng-hide="$ctrl.itemsData.results">
-            <h3>Nothing here - yet.</h3>
-            <p><a href="welcome">Click here</a> to get a walkthrough on how to connect with us.</p>
-        </span>
+        <!-- Article main content -->
+        <article class="col-xs-12 maincontent">
+        </article>
     </div>
+</div>
 
 <div class="push"></div>
 

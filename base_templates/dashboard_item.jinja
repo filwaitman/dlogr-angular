@@ -1,0 +1,43 @@
+{% extends 'base.jinja' %}
+
+{% block outer_content %}
+    <div ng-if="$ctrl.error" class="alert alert-danger">{{ ctrl.error }}</div>
+    <div class="breadcrumb"></div>
+
+    <div class="container">
+        <h1>History</h1>
+
+        <div id='timeline-embed' style="width: 100%; height: 350px"></div>
+
+        <h3>Events list</h3>
+        <span ng-repeat="event in $ctrl.itemsData.results">
+            <h3>{{ event.human_identifier }}: {{ event.message }}</h3>
+            <p class="text-muted">{{ event.object_type}} / {{ event.object_id }}</p>
+            <p class="text-muted">at {{ event.timestamp }} ({{ event.timestamp }})</p>
+            <hr/>
+        </span>
+        <span ng-hide="$ctrl.itemsData.results">
+            <h3>No items here - yet.</h3>
+        </span>
+    </div>
+{% endblock %}
+
+{% block js %}
+    {{ block.super }}
+
+    <span ng-if="$ctrl.itemsData.results">
+        <script src="https://cdn.knightlab.com/libs/timeline3/latest/js/timeline.js"></script>
+        <script type="text/javascript">
+          var additionalOptions = {
+            start_at_end: true,
+            hash_bookmark: true,
+            duration: 600,
+            zoom_sequence: [0.5, 1, 2, 3, 5, 8, 13],
+            // initial_zoom: 13,
+            // default_bg_color: {r:0, g:0, b:0},
+            // timenav_height: 250
+          }
+          timeline = new TL.Timeline('timeline-embed', timeline_json, additionalOptions);
+        </script>
+    </span>
+{% endblock %}

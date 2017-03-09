@@ -20,7 +20,6 @@
 
 <body>
 
-<div class="wrapper">
 
     <div class="navbar navbar-inverse navbar-thin" style="background-color: black">
         <div class="container">
@@ -50,44 +49,46 @@
     </div>
 
 
-    <div ng-if="$ctrl.error" class="alert alert-danger">{{ $ctrl.error }}</div>
-
-    <div class="breadcrumb"></div>
-
-    <div class="container">
-        <div class="row">
-            <form>
-              <div class="col-lg-offset-6 col-lg-6">
-                <div class="input-group">
-                  <input type="text" class="form-control" name="search" id="id_search" autofocus placeholder="Search events!">
-                  <span class="input-group-btn">
-                    <input type="submit" class="btn btn-default custom-btn-input-group" value="Search" />
-                  </span>
-                </div><!-- /input-group -->
-              </div><!-- /.col-lg-6 -->
-            </form>
+    <!-- Header -->
+    <header id="head">
+        <div class="container">
+            <div class="row">
+                <h1 class="lead sub-hero">Dlogr: High level, object-oriented logging.</h1>
+                <p class="tagline sub-hero">(Done right.)</p>
+                <p>
+                    <a class="no-shadow btn btn-info btn-lg" role="button" href="#">SEE ON GITHUB</a>
+                    <a class="no-shadow btn btn-primary btn-lg" role="button" href="signup">SIGN UP</a>
+                </p>
+            </div>
         </div>
-        <h1>Events received</h1>
+    </header>
+    <!-- /Header -->
 
-        <span ng-repeat="event in $ctrl.itemsData.results">
-            <h3>{{ event.human_identifier }}: {{ event.message }}</h3>
-            <p class="text-muted">
-                <a ui-sref="dashboardItem({objectId: event.object_id, objectType: event.object_type})">
-                    {{ event.object_type }} / {{ event.object_id }}
-                </a>
-            </p>
-            <p class="text-muted">at {{ event.timestamp }} ({{ event.timestamp }})</p>
-            <hr/>
-        </span>
-        <span ng-hide="$ctrl.itemsData.results">
-            <h3>Nothing here - yet.</h3>
-            <p><a href="welcome">Click here</a> to get a walkthrough on how to connect with us.</p>
-        </span>
+    <!-- Intro -->
+    <div class="container text-center">
+        <br> <br>
+        <div class="row">
+            <div class="col-lg-6 col-md-6 hidden-sm hidden-xs">
+                <img src="static/images/whats_this_about.jpg" style="margin-top: 30px;">
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 text-left">
+                <h2 class="thin">What's this about?</h2>
+                <p class="text-muted">
+                    Dlogr is a new way to track occurences of any kind of your database objects. <br/>
+                    It's a logging app, precisely built to deal with rich objects.<br/><br/>
+
+                    Have you ever tried to track down everything of you user/invoice/whatever lifetime? That's why we're here.  =]<br><br>
+
+                    With a super-easy setup you'll be ready to integrate with Dlogr in a matter of minutes. Give it a try, it's simple and it's free! Why not?
+                    <p class="text-right"><a class="no-shadow btn btn-primary btn-large" href="signup">Check it out!</a></p>
+                </p>
+            </div>
+        </div>
     </div>
+    <!-- /Intro-->
 
 <div class="push"></div>
 
-</div>
 
     <footer id="footer">
         <div class="footer2">
